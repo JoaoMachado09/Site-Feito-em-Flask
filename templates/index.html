@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Festival Brasil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Estante de livros</h1>
+    <div class="catalogo id=2">
+        {% for atracao in atracoes %}
+        <div class="atracao">
+            <img src="{{ url_for('static', filename=atracao.imagem) }}" alt="{{ atracao.nome }}" width="200">
+            <h2>{{ atracao.nome }}</h2>
+            <p><strong>Autor:</strong> {{ atracao.autor }}</p>
+            <a href="{{ url_for('detalhes', id=atracao.id) }}">Ver Detalhes</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

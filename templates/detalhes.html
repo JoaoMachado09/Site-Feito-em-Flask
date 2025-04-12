@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ atracao.nome }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/">← Voltar</a>
+    <h1>{{ atracao.nome }}</h1>
+    <img src="{{ url_for('static', filename=atracao.imagem) }}" alt="{{ atracao.nome }}" width="400">
+    <p><strong>Descrição:</strong> {{ atracao.descricao }}</p>
+    <p><strong>Autor:</strong> {{ atracao.autor }}</p>
+
+    <h2>Comentários</h2>
+    <ul>
+        {% for comentario in atracao.comentarios %}
+        <li><strong>{{ comentario.autor }}:</strong> {{ comentario.opiniao }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
